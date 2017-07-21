@@ -4,14 +4,6 @@
 # .: THE SCRIPT : .
 #
 #
-# The expected response from
-# the ping route is an object
-# like so :
-#
-# {
-#   "response":"PONG"
-# }
-#
 # Source the settings file
 source ./CONFIG_FILE 
 
