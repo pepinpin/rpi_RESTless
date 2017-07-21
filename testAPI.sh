@@ -6,7 +6,6 @@
 #
 # Source the settings file
 source ./CONFIG_FILE 
-
 #
 #
 # The result of calling the API
