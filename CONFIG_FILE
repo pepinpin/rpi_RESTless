@@ -4,7 +4,7 @@
 #
 #
 # the route to ping
-url="https://exemple.com:8081/api/ping"
+url="https://exemple.com:8181/api/ping"
 #
 # The expected response from
 # the ping route is an object
