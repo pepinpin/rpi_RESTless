@@ -15,11 +15,9 @@ result="$(curl -s -X $queryMethod -H "Accept: application/json" $url | jq -r '.'
 # Check the result of calling the API
 if [ "$result" = 'PONG' ]
 then
-	echo "TRUE"
+	echo "target is ..:: ONLINE ::.."
 	exit 0
 else
-	echo "FALSE"
-	exit 1
+	echo 'target is /!\/!\ :OFFLINE: /!\/!\'
+	exit 0
 fi
-#
-#
