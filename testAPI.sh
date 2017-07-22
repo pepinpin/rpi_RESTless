@@ -13,7 +13,7 @@ source ./CONFIG_FILE
 result="$(curl -s -X $queryMethod -H "Accept: application/json" $url | jq -r '.'$jsonKey)"
 #
 # Check the result of calling the API
-if [ "$result" = 'PONG' ]
+if [ "$result" = "$jsonValue" ]
 then
 	echo "target is ..:: ONLINE ::.."
 	exit 0
