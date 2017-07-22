@@ -33,6 +33,10 @@ nano CONFIG_FILE
 # or
 vim CONFIG_FILE
 ```
+* make sure you have jq (JSON processor) installed
+```bash
+sudo apt install jq
+```
 * Run the script to see if it works
 ```bash
 ./testAPI.sh
