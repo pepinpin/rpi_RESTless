@@ -5,6 +5,13 @@ This bash script will help you monitor a REST API heartbeat with a Raspberry Pi
 ### Installation
 
 * Clone this repo
+```bash
+git clone https://github.com/pepinpin/rpi_RESTless.git
+```
+* cd into the project folder
+```bash
+cd rpi_RESTless
+```
 * rename the CONFIG_FILE.sample to CONFIG_FILE
 ```bash
 mv CONFIG_FILE.sample CONFIG_FILE
