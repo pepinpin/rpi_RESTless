@@ -17,7 +17,7 @@ vim CONFIG_FILE
 ```
 * Run the script to see if it works
 ```bash
-./testApis.sh
+./testAPI.sh
 ```
 * setup a cron (every minute or so)
 ```bash
