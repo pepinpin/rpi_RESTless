@@ -2,6 +2,17 @@
 
 This bash script will help you monitor a REST API heartbeat with a Raspberry Pi
 
+### Requirements
+
+* The API you want to monitor needs to be able to send a JSON object
+when querying a specific endpoint with a common HTTP verb (GET, POST, PUT...)
+* The default expected response should look like :
+```json
+{
+  "response":"PONG"
+}
+```
+
 ### Installation
 
 * Clone this repo
