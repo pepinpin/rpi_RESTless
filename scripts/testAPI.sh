@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# .: THE SCRIPT : .
+# .: THE SCRIPT THAT TESTS THE API :.
 #
 #
 # set the CONFIG_FILE variable with 
@@ -18,26 +18,21 @@ else
 	# exit with an error
 	exit 1 # the file doesn't exist
 fi
-
+#
 #
 # The result of calling the API
-# with the requested paramters,
+# with the requested parameters,
 # here it should be the string 'PONG'
 result="$(curl -s -X $queryMethod -H "Accept: application/json" $url | jq -r '.'$jsonKey)"
 #
-# Check if the CONFIG_FILE exists (to avoid side effects) and
 # test the result of calling the API
-if [[ -f $CONFIG_FILE && "$result" = "$jsonValue" ]]
+if ["$result" = "$jsonValue" ]
 then
-	echo "target is ..:: ONLINE ::.."
-#	isOnline='true'
+	# for debug
+	#echo "target is ..:: ONLINE ::.."
+	exit 0 # the target has been reached
 else
-	echo 'target is /!\/!\ :OFFLINE: /!\/!\'
-#	isOnline='false'
+	#for debug
+	#echo 'target is /!\/!\ :OFFLINE: /!\/!\'
+	exit 2 # the target can't be reached
 fi
-#
-# write the value of the isOnline variable to the IS_ONLINE file
-#echo $isOnline > ./IS_ONLINE
-#
-# And exit gracefully
-exit 0
