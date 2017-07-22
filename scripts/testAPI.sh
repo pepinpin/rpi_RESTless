@@ -26,7 +26,7 @@ fi
 result="$(curl -s -X $queryMethod -H "Accept: application/json" $url | jq -r '.'$jsonKey)"
 #
 # test the result of calling the API
-if ["$result" = "$jsonValue" ]
+if [ "$result" = "$jsonValue" ]
 then
 	# for debug
 	#echo "target is ..:: ONLINE ::.."

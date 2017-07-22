@@ -14,9 +14,10 @@
 # by default it's stored on a tmpfs partiton (/dev/shm)
 # that only exist in memory to avoid unecessary access to the SDCard
 PID_FILE=/dev/shm/runMe_rpi_restless.pid
-
+#
 # check if the file exists
 if [ -f PID_FILE  ]
+
 # if it does exist
 then
 	# set the PID variable the value stored in the PID_FILE
@@ -67,21 +68,37 @@ fi
 #
 #####
 #
+# where are the other scripts located
+SCRIPTS_FOLDER=./scripts
 #
+# the sleeping time between 2 tests if the 1st one fails
+SLEEPING_TIME=3 # default 3 seconds
+#
+# variable to hold the test result
+test_fails=true
+#
+# while the test_fails variable is true
+while [ $test_fails = true ]
+do
+	# run the script that tests the API
+	$SCRIPTS_FOLDER/testAPI.sh
+	# if its exit code is not 0
+	if [ $? -ne 0 ]
+	then
+		# trigger an alert
+		echo "CA MARCHE PAS !!!"
+		
+		# sleep for few seconds
+		sleep $SLEEPING_TIME
+	else
+		# reset the test_fails variable
+		# to false to stop the loop
+		test_fails=false
+		# stop the alert
+		echo "CA MARCHE !!!"
 
+	fi
+done
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# exit gracefully
 exit 0
