@@ -13,7 +13,7 @@
 # The location to store the PID file
 # by default it's stored on a tmpfs partiton (/dev/shm)
 # that only exist in memory to avoid unecessary access to the SDCard
-PID_FILE=/dev/shm/rpi_RESTless/runMe.pid
+PID_FILE=/dev/shm/runMe_rpi_restless.pid
 
 # check if the file exists
 if [ -f PID_FILE  ]
@@ -84,5 +84,4 @@ fi
 
 
 
-:w
-
+exit 0
