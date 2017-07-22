@@ -34,4 +34,4 @@ crontab -e
 ### TODO
 
 * send an email when the API is down
-* trigger a GPIO pin when API is down (to turn on a light, a LED or anything else)
+* trigger a GPIO pin when the API is down (to turn on a light, a LED or anything else)
