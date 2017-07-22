@@ -12,6 +12,11 @@ when querying a specific endpoint with a common HTTP verb (GET, POST, PUT...)
   "response":"PONG"
 }
 ```
+* The following packages installed :
+    cURL, jq (JSON processor) & git (to clone the repo, you can uninstall it afterwards)
+```bash
+sudo apt install curl jq git
+```
 
 ### Installation
 
@@ -32,10 +37,6 @@ mv CONFIG_FILE.sample CONFIG_FILE
 nano CONFIG_FILE
 # or
 vim CONFIG_FILE
-```
-* make sure you have jq (JSON processor) installed
-```bash
-sudo apt install jq
 ```
 * Run the script to see if it works
 ```bash
