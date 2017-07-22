@@ -14,6 +14,9 @@ url="https://exemple.com:8080/api/ping"
 # (see 'man jq' for more)
 jsonKey="response"
 #
+# The expected value
+jsonValue="PONG"
+#
 # The expected response from
 # the ping route is an object
 # like so :
