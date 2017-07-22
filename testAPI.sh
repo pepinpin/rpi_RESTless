@@ -1,6 +1,5 @@
 #!/bin/bash
 #
-#
 # .: THE SCRIPT : .
 #
 #
