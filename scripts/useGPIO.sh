@@ -9,47 +9,6 @@
 
 ###
 #
-# The CONFIG_FILE
-#
-###
-
-# set the CONFIG_FILE variable with 
-# the path to the CONFIG_FILE file
-CONFIG_FILE="$( dirname $( dirname $( realpath $0 ) ) )/CONFIG_FILE"
-
-# test if the file exist
-if [ -f $CONFIG_FILE  ]
-# if it does
-then
-        # source it
-        source $CONFIG_FILE
-
-# if it doesn't exist
-else
-        # exit with an error
-        exit 1 # the file doesn't exist
-fi
-
-###
-#
-# The GPIO pins to use
-# ( check the CONFIG_FILE for a 
-# complete pin layout map)
-#
-###
-
-# available pins for the raspi 2 & 3
-GPIO_PINS='0 1 4 7 8 9 10 11 14 15 17 18 21 22 23 24 25'
-
-# if the raspberry pi is of version 1
-if [ $RASPI_VERSION -eq 1  ]
-then
-	# override the GPIO_PINS variable withe the proper map
-	GPIO_PINS='2 3 4 7 8 9 10 11 14 15 17 18 22 23 24 25 27'
-fi
-
-###
-#
 # The function
 #
 ###
@@ -59,13 +18,35 @@ fi
 # * a verb ( can be 'read', 'write', 'mode' or 'state')
 # * a pin number (which one to you want to interact with)
 # * and a "value" for the requested action (can be omitted for 'read' and 'state')
-# *** for 'write' it can be : 1 or 0
+# *** for 'write' it can be : 1 OR 0
 # *** for 'mode' it can be : in OR out
-# *** for 'read' it can be omitted 
-# *** for 'state' it can be ommitted
+# *** for 'read' it must be omitted 
+# *** for 'state' it must be ommitted
 
 function gpio()
 {
+
+########
+	# set the CONFIG_FILE variable with 
+	# the path to the CONFIG_FILE file
+	CONFIG_FILE="$( dirname $( realpath $0 ) )/CONFIG_FILE"
+
+	# test if the file exist
+	if [ -f $CONFIG_FILE  ]
+	# if it does
+	then
+        	# source it
+        	source $CONFIG_FILE
+
+	# if it doesn't exist
+	else
+        	# exit with an error
+		echo "config file in gpio could not be found"
+        	exit 1 # the file doesn't exist
+	fi
+#########
+
+
     local verb=$1
     local pin=$2
     local value=$3

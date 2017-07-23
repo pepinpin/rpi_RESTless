@@ -138,12 +138,20 @@ fi
 # variable to hold the test result
 test_fails=true
 
+# set the GPIO_PIN mode
+if [ $GPIO_ALERT = true ]
+then
+	gpio mode $GPIO_PIN out
+fi
+
+
 # while the test_fails variable is true
 while [ $test_fails = true ]
 do
 	# run the script that tests the API
 	$TEST_API
 	test_result=$?
+	
 	# if its exit code is 0 (target is online)
 	if [ $test_result -eq 0 ]
 	then
@@ -158,7 +166,11 @@ do
 	
 		# stop the alert
                 # >>> do something here
-
+                if [ $GPIO_ALERT = true ]
+                then
+			# set the GPIO_PIN low
+			gpio write $GPIO_PIN 0 
+                fi
 	
 	
 	# if exit code is 1 (CONFIG_FILE not found)
@@ -181,10 +193,16 @@ do
                 then
                         echo "!!!!.. OFFLINE ..!!!!"
                 fi
+
         
                 # trigger an  the alert
                 # >>> do something here
-                
+		if [ $GPIO_ALERT = true ]
+		then
+			# set the GPIO_PIN high
+                	gpio write $GPIO_PIN 1
+		fi
+
 
                 # sleep for few seconds
                 sleep $SLEEPING_TIME
