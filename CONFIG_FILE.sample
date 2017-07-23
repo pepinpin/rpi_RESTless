@@ -28,7 +28,8 @@ SLEEPING_TIME=3 # default 3 seconds
 
 # set the following variable to true
 # if you want the script to run forever
-# (for testing purposes only)
+# (using nohup, tmux or screen if you want 
+# to be able to close your terminal without stopping the script)
 RUN_FOREVER=true
 
 #####
