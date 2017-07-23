@@ -70,58 +70,72 @@ JSON_VALUE="PONG"
 # to trigger an alert : turn on a light or something
 # (check map bellow)
 
-GPIO_PIN=9 # is physical pin 11
+GPIO_PIN=2 # is pin 4 on the board
 
-
-################################
+#########################################################
+#
+#               AVAILABLE PINS
+#  (not all pins are available with this script)
+#
+#########################################################
 #
 # for the Raspberry Pi 2 and 3
 #
-#   This map needs to be validated since I don't have a rpi2/rpi3
-#   on hand to try it out, USE WITH CAUTION ! 
 #
-#       GPIO_PINS       Physical_pins
-#       0               3
-#       1               5
-#       4               7
-#       7               8
-#       8               10
-#       9               11
-#       10              12
-#       11              13
-#       14              15
-#       15              16
-#       17              18
-#       18              19
-#       21              21
-#       22              22
-#       23              23
-#       24              24
-#       25              26
+#       Physical pins
+# (as labeled on the board)     GPIO_PIN number to use 
+#       0 >> EEPROM pin 1               0
+#       1 >> EEPROM pin 2               1
+#       4                               2
+#       7                               3
+#       8                               4
+#       9                               5
+#       10                              6
+#       11                              7
+#       14                              8
+#       15                              9
+#       17                              10
+#       18                              11
+#       21                              12
+#       22                              13
+#       23                              14
+#       24                              15
+#       25                              16
 #
-#####################################
+########################################################
 #
 # for Raspberry Pi 1 Revision 2
 #
-#       GPIO_PINS       Physical_pins
-#       2               3
-#       3               5
-#       4               7
-#       7               8
-#       8               10
-#       9               11
-#       10              12
-#       11              13
-#       14              15
-#       15              16
-#       17              18
-#       18              19
-#       22              21
-#       23              22
-#       24              23
-#       25              24
-#       27              26
+#       Physical pins
+# (as labeled on the board)     GPIO_PIN number to use 
+#       2                               0
+#       3                               1
+#       4                               2
+#       7                               3
+#       8                               4
+#       9                               5
+#       10                              6
+#       11                              7
+#       14                              8
+#       15                              9
+#       17                              10
+#       18                              11
+#       22                              12
+#       23                              13
+#       24                              14
+#       25                              15
+#       27                              16
+#
+#######################################################
 
+
+
+
+###################
+
+# !!!!!!!!!!!!!!!!!
+
+###################
 
 
 

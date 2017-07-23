@@ -162,7 +162,7 @@ do
 	# if its exit code is 0 (target is online)
 	if [ $test_result -eq 0 ]
 	then
-	        if [ $DEBUG = true  ] 
+	        if [ $DEBUG = true ] 
 	        then
 			echo "..:: ONLINE ::.."
         	fi
@@ -192,9 +192,9 @@ do
 
 	
 	# if exit code is 1 (CONFIG_FILE not found)
-	elif [ $test_result -eq 1  ]
+	elif [ $test_result -eq 1 ]
 	then
-                if [ $DEBUG = true  ]
+                if [ $DEBUG = true ]
                 then
                         echo "The CONFIG_FILE for the script $( basename $TEST_API )"
                         echo "located here : $TEST_API"
@@ -205,9 +205,9 @@ do
 		exit 1
 	
 	# if exit code is 2 (target API is unreachable)
-	elif [ $test_result -eq 2  ]
+	elif [ $test_result -eq 2 ]
 	then	
-                if [ $DEBUG = true  ]
+                if [ $DEBUG = true ]
                 then
                         echo "!!!!.. OFFLINE ..!!!!"
                 fi
@@ -234,7 +234,7 @@ do
 	# if the exit code is not 0, 1 or 2 then
 	# it's an unknown error 	
 	else
-		if [ $DEBUG = true  ]
+		if [ $DEBUG = true ]
                 then
                         echo "an unknown error has occured !!!"
                 fi
