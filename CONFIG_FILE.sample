@@ -26,6 +26,10 @@ GPIO_ALERT=true
 # the sleeping time between 2 tests if one fails
 SLEEPING_TIME=3 # default 3 seconds
 
+# set the following variable to true
+# if you want the script to run forever
+# (for testing purposes only)
+RUN_FOREVER=true
 
 #####
 #

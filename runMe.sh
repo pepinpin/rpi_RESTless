@@ -141,6 +141,13 @@ test_fails=true
 # set the GPIO_PIN mode
 if [ $GPIO_ALERT = true ]
 then
+	if [ $DEBUG = true ]
+	then
+		echo "gpio state for pin $GPIO_PIN :: $( gpio state $GPIO_PIN )"
+		echo "GPIO_PINS available :: $GPIO_PINS"
+	fi
+
+
 	gpio mode $GPIO_PIN out
 fi
 
@@ -160,18 +167,29 @@ do
 			echo "..:: ONLINE ::.."
         	fi
 
-                # reset the test_fails variable
-                # to false to stop the loop
-                test_fails=false
-	
 		# stop the alert
                 # >>> do something here
                 if [ $GPIO_ALERT = true ]
                 then
+			if [ $DEBUG = true ]
+			then
+				echo "set the pin $GPIO_PIN >> DOWN"
+			fi
+
 			# set the GPIO_PIN low
 			gpio write $GPIO_PIN 0 
                 fi
-	
+
+		# reset the test_fails variable
+                # to false to stop the loop
+                if [ $RUN_FOREVER = false ]
+                then
+                        test_fails=false
+		else
+			# sleep for few seconds
+			sleep $SLEEPING_TIME
+                fi
+
 	
 	# if exit code is 1 (CONFIG_FILE not found)
 	elif [ $test_result -eq 1  ]
@@ -199,6 +217,11 @@ do
                 # >>> do something here
 		if [ $GPIO_ALERT = true ]
 		then
+			if [ $DEBUG = true ]
+			then
+				echo "set the pin $GPIO_PIN >> UP"
+			fi
+
 			# set the GPIO_PIN high
                 	gpio write $GPIO_PIN 1
 		fi
