@@ -9,61 +9,44 @@
 
 ###
 #
-# The GPIO pins to use
+# The CONFIG_FILE
 #
 ###
 
-# Uncomment the following line for the Raspberry Pi 2 and 3
-#GPIO_PINS='0 1 4 7 8 9 10 11 14 15 17 18 21 22 23 24 25'
+# set the CONFIG_FILE variable with 
+# the path to the CONFIG_FILE file
+CONFIG_FILE="$( dirname $( dirname $( realpath $0 ) ) )/CONFIG_FILE"
+
+# test if the file exist
+if [ -f $CONFIG_FILE  ]
+# if it does
+then
+        # source it
+        source $CONFIG_FILE
+
+# if it doesn't exist
+else
+        # exit with an error
+        exit 1 # the file doesn't exist
+fi
+
+###
 #
-#	This map needs to be validated since I don't have a rpi2/rpi3
-#	to try it out, USE WITH CAUTION ! 
+# The GPIO pins to use
+# ( check the CONFIG_FILE for a 
+# complete pin layout map)
 #
-#       GPIO_PINS       Physical_pins
-#       0               3
-#       1               5
-#       4               7
-#       7               8
-#       8               10
-#       9               11
-#       10              12
-#       11              13
-#       14              15
-#       15              16
-#       17              18
-#       18              19
-#       21              21
-#       22              22
-#       23              23
-#       24              24
-#       25              26
+###
 
+# available pins for the raspi 2 & 3
+GPIO_PINS='0 1 4 7 8 9 10 11 14 15 17 18 21 22 23 24 25'
 
-
-# Uncomment the following line for Raspberry Pi 1 Revision 2
-GPIO_PINS='2 3 4 7 8 9 10 11 14 15 17 18 22 23 24 25 27'
-#
-#	GPIO_PINS	Physical_pins
-#	2		3
-#	3		5
-#	4		7
-#	7		8
-#	8		10
-#	9		11
-#	10		12
-#	11		13
-#	14		15
-#	15		16
-#	17		18
-#	18		19
-#	22		21
-#	23		22
-#	24		23
-#	25		24
-#	27		26
-
-
-
+# if the raspberry pi is of version 1
+if [ $RASPI_VERSION -eq 1  ]
+then
+	# override the GPIO_PINS variable withe the proper map
+	GPIO_PINS='2 3 4 7 8 9 10 11 14 15 17 18 22 23 24 25 27'
+fi
 
 ###
 #

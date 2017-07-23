@@ -3,20 +3,50 @@
 # .: Settings :.
 #
 #
+#####
+#
+# GENERAL
+#
+#####
+
+# Raspberry Pi version
+# can be : 
+# ** 1 (for raspi 1 rev 2)
+# ** 2 (for raspi 2)
+# ** 3 (for raspi 3)
+RASPI_VERSION=1
+
+# Display alert on screen 
+# (mainly for debug or test)
+DEBUG=true
+
+# Alert with GPIO
+GPIO_ALERT=true
+
+# the sleeping time between 2 tests if one fails
+SLEEPING_TIME=3 # default 3 seconds
+
+
+#####
+#
+#	TESTING THE API
+#
+#####
+
 # The verb used to ping the API
-queryMethod="GET"
-#
+QUERY_METHOD="GET"
+
 # the route to ping
-url="https://exemple.com:8080/api/ping"
-#
+URL="https://exemple.com:8080/api/ping"
+
 # The JSON key to search for at the top level
 # of the received JSON object
 # (see 'man jq' for more)
-jsonKey="response"
-#
+JSON_KEY="response"
+
 # The expected value
-jsonValue="PONG"
-#
+JSON_VALUE="PONG"
+
 # The expected response from
 # the ping route is an object
 # like so :
@@ -25,3 +55,65 @@ jsonValue="PONG"
 #   "response":"PONG"
 # }
 #
+
+#####
+#
+#	GPIO 
+#
+#####
+#
+# the pin to use the raspberry pi
+# to trigger an alert : turn on a light or something
+# (check map bellow)
+
+GPIO_PIN=9 # is physical pin 11
+
+################################
+#
+# for the Raspberry Pi 2 and 3
+#
+#   This map needs to be validated since I don't have a rpi2/rpi3
+#   on hand to try it out, USE WITH CAUTION ! 
+#
+#       GPIO_PINS       Physical_pins
+#       0               3
+#       1               5
+#       4               7
+#       7               8
+#       8               10
+#       9               11
+#       10              12
+#       11              13
+#       14              15
+#       15              16
+#       17              18
+#       18              19
+#       21              21
+#       22              22
+#       23              23
+#       24              24
+#       25              26
+#
+#####################################
+#
+# for Raspberry Pi 1 Revision 2
+#
+#       GPIO_PINS       Physical_pins
+#       2               3
+#       3               5
+#       4               7
+#       7               8
+#       8               10
+#       9               11
+#       10              12
+#       11              13
+#       14              15
+#       15              16
+#       17              18
+#       18              19
+#       22              21
+#       23              22
+#       24              23
+#       25              24
+#       27              26
+
