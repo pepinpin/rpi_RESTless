@@ -16,7 +16,7 @@
 PID_FILE=/dev/shm/runMe_rpi_restless.pid
 
 #debug
-echo "the PID for this process is :: $$"
+#echo "the PID for this process is :: $$"
 
 # check if the file exists
 if [ -f $PID_FILE  ]
@@ -33,7 +33,8 @@ then
 	if [ $? -eq 0 ]
 	then
 		#debug
-		echo "Process already running"
+		#echo "Process already running"
+		
 		# exit with an error
 		exit 2 # process already running
 	else
@@ -48,7 +49,8 @@ then
 		if [ $? -ne 0 ]
 		then	
 			#debug
-			echo "Cannot create PID file"
+			#echo "Cannot create PID file"
+			
 			# exit with an error	
 			exit 1 # cannot create the pid file
 		fi
@@ -63,7 +65,8 @@ else
 	if [ $? -ne 0 ]
 	then
 		#debug
-		echo "Cannot create PID file"
+		#echo "Cannot create PID file"
+		
 		# exit with an error    
 		exit 1 # cannot create the pid file
 	fi
@@ -94,8 +97,10 @@ do
 	if [ $? -ne 0 ]
 	then
 		# trigger an alert
+		# >>> do something here
+		
 		#debug
-		echo "!!! OFFLINE !!!"
+		#echo "!!! OFFLINE !!!"
 		
 		# sleep for few seconds
 		sleep $SLEEPING_TIME
@@ -103,9 +108,12 @@ do
 		# reset the test_fails variable
 		# to false to stop the loop
 		test_fails=false
+		
 		# stop the alert
+		# >>> do something here
+		
 		#debug
-		echo ". : online : ."
+		#echo ". : online : ."
 
 	fi
 done
