@@ -47,7 +47,11 @@ vim CONFIG_FILE
 crontab -e
 ```
 
+### Post install setup
+
+* check this picture to know which pin to set in the CONFIG_FILE
+![pin layout](https://user-images.githubusercontent.com/8282491/28501613-e1978da2-6fdf-11e7-9021-e93edf30b8f6.png)
+
 ### TODO
 
 * send an email when the API is down
-* trigger a GPIO pin when the API is down (to turn on a light, a LED or anything else)
