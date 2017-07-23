@@ -25,10 +25,10 @@ fi
 # The result of calling the API
 # with the requested parameters,
 # here it should be the string 'PONG'
-result="$(curl -s -X $queryMethod -H "Accept: application/json" $url | jq -r '.'$jsonKey)"
+result="$(curl -s -X $QUERY_METHOD -H "Accept: application/json" $URL | jq -r '.'$JSON_KEY)"
 
 # test the result of calling the API
-if [ "$result" = "$jsonValue" ]
+if [ "$result" = "$JSON_VALUE" ]
 then
 	exit 0 # the target has been reached
 else
