@@ -17,7 +17,7 @@
 #
 # * a verb ( can be 'read', 'write', 'mode' or 'state')
 # * a pin number (which one to you want to interact with)
-# * and a "value" for the requested action (can be omitted for 'read' and 'state')
+# * and a "value" for the requested action (must be omitted for 'read' and 'state')
 # *** for 'write' it can be : 1 OR 0
 # *** for 'mode' it can be : in OR out
 # *** for 'read' it must be omitted 
