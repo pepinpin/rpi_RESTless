@@ -2,6 +2,7 @@
 
 This bash script will help you monitor a REST API heartbeat with a Raspberry Pi (or any linux box for that matter)
 and trigger the GPIO pins (on Raspi only) to turn on a light, a motor or whatever you fancy ^-^ 
+
 (send an email, a message on slack / rocket chat...)
 
 * NO PYTHON (full bash script)
