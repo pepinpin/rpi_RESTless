@@ -50,7 +50,7 @@ crontab -e
 ### Post install setup
 
 * check this picture to know which pin to set in the CONFIG_FILE
-![pin layout](https://user-images.githubusercontent.com/8282491/28501613-e1978da2-6fdf-11e7-9021-e93edf30b8f6.png)
+![pin layout](https://user-images.githubusercontent.com/8282491/28538336-3c943326-70ae-11e7-8049-c2b9b3c98167.png)
 
 ### TODO
 
