@@ -8,7 +8,7 @@ This bash script will help you monitor a REST API heartbeat with a Raspberry Pi
 * Usable via a cron job
 * Trigger a GPIO pin on Raspberry Pi
 * Sends a message on Rocket Chat
-* Sends an email (WIP)
+* Sends an email
 
 ### Requirements
 
@@ -60,6 +60,3 @@ crontab -e
 * check this picture to know which pin to set in the CONFIG_FILE
 ![pin layout](https://user-images.githubusercontent.com/8282491/28538336-3c943326-70ae-11e7-8049-c2b9b3c98167.png)
 
-### TODO
-
-* send an email when the target API is down
