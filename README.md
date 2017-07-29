@@ -5,7 +5,7 @@ This bash script will help you monitor a REST API heartbeat with a Raspberry Pi
 
 * NO PYTHON (full bash script)
 * Easy to configure
-* Usable via a cron job (WIP)
+* Usable via a cron job
 * Trigger a GPIO pin on Raspberry Pi
 * Sends a message on Rocket Chat
 * Sends an email (WIP)
