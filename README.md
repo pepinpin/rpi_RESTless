@@ -1,11 +1,14 @@
 ## Welcome rpi_RESTless
 
 This bash script will help you monitor a REST API heartbeat with a Raspberry Pi (or any linux box for that matter)
-and trigger the GPIO pins (on Raspi only) to turn on a light, a motor or whatever you fancy ^-^ 
-(send an email, a message on slack / rocket chat, start another script...)
+and set of an alert
 
 * NO PYTHON (full bash script)
 * Easy to configure
+* Usable via a cron job (WIP)
+* Trigger a GPIO pin on Raspberry Pi
+* Sends a message on Rocket Chat
+* Sends an email (WIP)
 
 ### Requirements
 
