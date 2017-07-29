@@ -10,8 +10,7 @@
 #
 ###
 
-CONFIG_FILE=./CONFIG_FILE
-
+CONFIG_FILE=$(dirname $(realpath $0 ))/CONFIG_FILE
 
 ###
 #
@@ -19,10 +18,9 @@ CONFIG_FILE=./CONFIG_FILE
 #
 ###
 
-readonly TEST_API=./scripts/testAPI.sh
-readonly GPIO=./scripts/useGPIO.sh
-readonly CHAT=./scripts/useRocketChat.sh
-
+TEST_API=$(dirname $(realpath $0 ) )/scripts/testAPI.sh
+GPIO=$(dirname $(realpath $0 ))/scripts/useGPIO.sh
+CHAT=$(dirname $(realpath $0 ))/scripts/useRocketChat.sh
 
 ###
 #
@@ -44,7 +42,6 @@ else
         # exit with an error
         exit 1
 fi
-
 
 
 ##########
