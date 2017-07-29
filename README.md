@@ -62,5 +62,4 @@ crontab -e
 
 ### TODO
 
-* make the script runnable via a cron
 * send an email when the target API is down
