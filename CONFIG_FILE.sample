@@ -40,6 +40,10 @@ GPIO_ALERT=false
 # see the section bellow to configure this script for rocketChat 
 CHAT_ALERT=false
 
+# Alert by sending an email
+# see the section bellow to configure this alert system
+EMAIL_ALERT=true
+
 #####
 #
 #	TESTING THE API
@@ -92,6 +96,20 @@ ROCKETCHAT_CHANNEL_NAME="#test"
 # or when it comes back up
 ROCKETCHAT_MSG_SUCCESS="$TEST_NAME is back UP ! :thumbsup:"
 ROCKETCHAT_MSG_FAILURE="$TEST_NAME is DOWN !!!! :thumbsdown:"
+
+
+#####
+#
+#       SEND EMAIL
+#
+#####
+
+# who do you want to send an email to ?
+# you can add multiple reciepients with a comma
+# ex : john1@to.to,betty@to.to
+SENDMAIL_RECIPIENT="toto@to.to"
+SENDMAIL_SUBJECT_SUCCESS="test SUCCESS"
+SENDMAIL_SUBJECT_FAILURE="test FAILURE"
 
 
 #####

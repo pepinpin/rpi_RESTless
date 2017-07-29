@@ -21,6 +21,7 @@ CONFIG_FILE=$(dirname $(realpath $0 ))/CONFIG_FILE
 TEST_API=$(dirname $(realpath $0 ) )/scripts/testAPI.sh
 GPIO=$(dirname $(realpath $0 ))/scripts/useGPIO.sh
 CHAT=$(dirname $(realpath $0 ))/scripts/useRocketChat.sh
+EMAIL=$(dirname $(realpath $0 ))/scripts/sendEmail.sh
 
 ###
 #
@@ -29,13 +30,14 @@ CHAT=$(dirname $(realpath $0 ))/scripts/useRocketChat.sh
 #
 ###
 
-if [[ -f $CONFIG_FILE  && -f $TEST_API && -f $GPIO ]]
+if [[ -f $CONFIG_FILE  && -f $TEST_API && -f $GPIO && -f $EMAIL ]]
 # if they do
 then
         # source the needed files
 	source $CONFIG_FILE
         source $GPIO
         source $CHAT
+        source $EMAIL
 
 # if one of them doesn't exist
 else
@@ -197,6 +199,12 @@ do
                         	postMessage $ROCKETCHAT_MSG_SUCCESS
                 	fi
 
+                        if [ $EMAIL_ALERT = true ]
+                        then
+                                # send a message on rocket chat
+                                sendEmail $SENDMAIL_SUBJECT_SUCCESS
+                        fi
+
 			# reset the alert_triggered variable
 			alert_triggered=false
 		fi
@@ -261,6 +269,12 @@ do
                         	postMessage $ROCKETCHAT_MSG_FAILURE
                 	fi
 			
+                        if [ $EMAIL_ALERT = true ]
+                        then
+                                # send a message on rocket chat
+                        	sendEmail $SENDMAIL_SUBJECT_FAILURE
+			fi
+
 			# set the alert_triggered variable
 			alert_triggered=true
 		fi

@@ -26,12 +26,18 @@ function sendEmail(){
 	        exit 1 # the file doesn't exist
 	fi
 
+# store the given params as the message to send
+subject_to_send="$@"
 
-SENDMAIL_SUBJECT="test again"
-SENDMAIL_RECIPIENT="toto@to.to"
+	if [ "$subject_to_send" = "" ]
+	then
+        	echo "No message to send"
+        	exit 2
+	fi
 
 	# send the email
-	/usr/lib/sendmail -s "Subject : $SENDMAIL_SUBJECT" -v $SENDMAIL_RECIPIENT
+	echo "Subject: $subject_to_send" | /usr/lib/sendmail -v $SENDMAIL_RECIPIENT
+
 }
 
 if [ "$BASH_SOURCE" == "$0" ]
