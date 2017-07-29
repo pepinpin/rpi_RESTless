@@ -197,7 +197,7 @@ do
                 	if [ $CHAT_ALERT = true ]
                 	then
                         	# send a message on rocket chat
-                        	postMessage "$TEST_NAME is back UP !"
+                        	postMessage $ROCKETCHAT_MSG_SUCCESS
                 	fi
 
 			# reset the alert_triggered variable
@@ -261,7 +261,7 @@ do
 			if [ $CHAT_ALERT = true ]
                 	then
                         	# send a message on rocket chat
-                        	postMessage "$TEST_NAME is DOWN !!!!!!"
+                        	postMessage $ROCKETCHAT_MSG_FAILURE
                 	fi
 			
 			# set the alert_triggered variable

@@ -83,8 +83,15 @@ ROCKETCHAT_API_URL="https://rocketchat.exemple.com/api/v1"
 ROCKETCHAT_USER_EMAIL='someUser@someDomain.com'
 ROCKETCHAT_USER_PASSWORD='Th3SuperSecretP455word'
 
-# must be prefixed with #, ex: #general
+# must be prefixed with # for a channel, ex: #general
+# or with an @ for an user, ex: @john
+# (check rocket chat admin panel > Users to know the usernames)
 ROCKETCHAT_CHANNEL_NAME="#test"
+
+# The messages to send when the tested API is down
+# or when it comes back up
+ROCKETCHAT_MSG_SUCCESS="$TEST_NAME is back UP ! :thumbsup:"
+ROCKETCHAT_MSG_FAILURE="$TEST_NAME is DOWN !!!! :thumbsdown:"
 
 
 #####
