@@ -19,8 +19,8 @@ DEBUG=true
 
 # set the following variable to true
 # if you want the script to run forever
-# (using nohup, tmux or screen if you want 
-# to be able to close your terminal without stopping the script)
+# (using nohup, tmux, screen or 
+# if you're just running some tests)
 RUN_FOREVER=true
 
 # Raspberry Pi version
@@ -45,7 +45,7 @@ CHAT_ALERT=false
 #	TESTING THE API
 #
 #####
-
+#
 # the sleep time between 2 tests if one fails
 SLEEPING_TIME=3 # default 3 seconds
 
@@ -78,7 +78,7 @@ JSON_VALUE="PONG"
 #	ROCKET CHAT
 #
 #####
-
+#
 ROCKETCHAT_API_URL="https://rocketchat.exemple.com/api/v1"
 ROCKETCHAT_USER_EMAIL='someUser@someDomain.com'
 ROCKETCHAT_USER_PASSWORD='Th3SuperSecretP455word'
@@ -154,25 +154,20 @@ GPIO_PIN=2 # is pin 4 on the board
 #       27                              16
 #
 #######################################################
-
-
-
-
+#
+#
+#
 ###################
 
 # !!!!!!!!!!!!!!!!!
 
 ###################
-
-
-
-##
 #
 # DO NOT TOUCH the following lines, 
 # unless you know exactly what you're doing
 #
-##
-
+#####
+#
 # available pins for the raspi 2 & 3
 GPIO_PINS='0 1 4 7 8 9 10 11 14 15 17 18 21 22 23 24 25'
 

@@ -26,9 +26,10 @@ else
 fi
 
 # test the rocket chat channel to use
-if [[ -z $ROCKETCHAT_ROOM_ID && -z $ROCKETCHAT_CHANNEL_NAME ]]
+if [ -z $ROCKETCHAT_CHANNEL_NAME ]
 then
-	echo "You need to provider either a channel name or a room id"
+	echo "You need to provider a channel name"
+	echo "prefixed with #, ex: #general"
 	exit 10
 fi
 
@@ -49,13 +50,13 @@ then
 	exit 2
 fi
 
+
 #####
 #
 #	AUTHENTICATE
 #
 ####
-
-
+#
 # authenticate to get the user id & the authentication token
 # use the -k option to avoid checking self sign certifs
 # send request as form-data
@@ -73,12 +74,13 @@ else
 	exit 3 # couldn't loggin
 fi
 
+
 #####
 #
 #	SEND THE MESSAGE
 #
 #####
-
+#
 # send request as form-data
 send_result="$(curl -k -s $ROCKETCHAT_API_URL/chat.postMessage -H "X-Auth-Token: $auth_token" -H "X-User-Id: $user_id" -d "channel=$ROCKETCHAT_CHANNEL_NAME&text=$message_to_send")"
 
@@ -97,7 +99,7 @@ fi
 #	LOGOUT
 #
 #####
-
+#
 # logout to invalidate the auth token
 logout_result="$(curl -k -s $ROCKETCHAT_API_URL/logout -H "X-Auth-Token: $auth_token" -H "X-User-Id: $user_id")"
 
