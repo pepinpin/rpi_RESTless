@@ -10,8 +10,18 @@
 #####
 #
 # The test name
-# ex : "Production Server"
-readonly TEST_NAME=""
+# ex : "Production API"
+TEST_NAME="Production API"
+
+# Display alert on screen 
+# (mainly for debug or test)
+DEBUG=true
+
+# set the following variable to true
+# if you want the script to run forever
+# (using nohup, tmux or screen if you want 
+# to be able to close your terminal without stopping the script)
+RUN_FOREVER=true
 
 # Raspberry Pi version
 # can be : 
@@ -20,25 +30,15 @@ readonly TEST_NAME=""
 # ** 3 (for raspi 3)
 # doesn't matter if you use this script
 # on a linux box other than a raspi
-readonly RASPI_VERSION=1
-
-# Display alert on screen 
-# (mainly for debug or test)
-readonly DEBUG=true
+RASPI_VERSION=1
 
 # Alert with GPIO (ONLY FOR RASPI !)
 # see section bellow to set the pin to use for alerting
-readonly GPIO_ALERT=false
+GPIO_ALERT=false
 
 # Alert by sending a message to rocketChat
-# see the section bellow to configure this alert system
-readonly RC_ALERT=false
-
-# set the following variable to true
-# if you want the script to run forever
-# (using nohup, tmux or screen if you want 
-# to be able to close your terminal without stopping the script)
-readonly RUN_FOREVER=true
+# see the section bellow to configure this script for rocketChat 
+CHAT_ALERT=false
 
 #####
 #
@@ -46,22 +46,22 @@ readonly RUN_FOREVER=true
 #
 #####
 
-# the sleeping time between 2 tests if one fails
-readonly SLEEPING_TIME=3 # default 3 seconds
+# the sleep time between 2 tests if one fails
+SLEEPING_TIME=3 # default 3 seconds
 
 # The verb used to ping the API
-readonly QUERY_METHOD="GET"
+QUERY_METHOD="GET"
 
 # the route to ping
-readonly URL="https://exemple.com:8080/api/ping"
+URL="https://exemple.com:8080/api/ping"
 
 # The JSON key to search for at the top level
 # of the received JSON object
 # (see 'man jq' for more)
-readonly JSON_KEY="response"
+JSON_KEY="response"
 
 # The expected value
-readonly JSON_VALUE="PONG"
+JSON_VALUE="PONG"
 
 # The expected response from
 # the ping route is an object
@@ -79,20 +79,12 @@ readonly JSON_VALUE="PONG"
 #
 #####
 
-readonly ROCKETCHAT_API_URL="https://rocketchat.exemple.com/api/v1"
-readonly ROCKETCHAT_USER_EMAIL='someUser@someDomain.com'
-readonly ROCKETCHAT_USER_PASSWORD='Th3SuperSecretP455word'
+ROCKETCHAT_API_URL="https://rocketchat.exemple.com/api/v1"
+ROCKETCHAT_USER_EMAIL='someUser@someDomain.com'
+ROCKETCHAT_USER_PASSWORD='Th3SuperSecretP455word'
 
-# MADATORY
-# 1 of the 2 next options MUST be set
-#
-# ex: ByehQjC44FwMeiLbX 
-readonly ROCKETCHAT_ROOM_ID=""
-#
-# or
-#
 # must be prefixed with #, ex: #general
-readonly ROCKETCHAT_CHANNEL_NAME="#test"
+ROCKETCHAT_CHANNEL_NAME="#test"
 
 
 #####

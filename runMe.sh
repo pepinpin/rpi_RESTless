@@ -19,9 +19,9 @@ CONFIG_FILE=./CONFIG_FILE
 #
 ###
 
-TEST_API=./scripts/testAPI.sh
-GPIO=./scripts/useGPIO.sh
-CHAT=./scripts/useRocketChat.sh
+readonly TEST_API=./scripts/testAPI.sh
+readonly GPIO=./scripts/useGPIO.sh
+readonly CHAT=./scripts/useRocketChat.sh
 
 
 ###
@@ -140,6 +140,9 @@ fi
 # variable to hold the test result
 test_fails=true
 
+# has the alerting system already been triggered ?
+alert_triggered=false
+
 # set the GPIO_PIN mode
 if [ $GPIO_ALERT = true ]
 then
@@ -168,20 +171,40 @@ do
 	        then
 			echo "..:: ONLINE ::.."
         	fi
+	
+	###
+	#
+	# STOP & RESET THE ALERTS
+	#	
+	###
+		# if the alert has been triggered	
+		if [ "$alert_triggered" = "true"  ]
+		then
 
-		# stop the alert
-                # >>> do something here
-                if [ $GPIO_ALERT = true ]
-                then
-			if [ $DEBUG = true ]
-			then
-				echo "set the pin $GPIO_PIN >> DOWN"
-			fi
+			# stop the alert
+        	        # >>> do something here
+                	if [ $GPIO_ALERT = true ]
+                	then
+				if [ $DEBUG = true ]
+				then
+					echo "set the pin $GPIO_PIN >> DOWN"
+				fi
 
-			# set the GPIO_PIN low
-			gpio write $GPIO_PIN 0 
-                fi
+				# set the GPIO_PIN low
+				gpio write $GPIO_PIN 0 
+                	fi
 
+                	if [ $CHAT_ALERT = true ]
+                	then
+                        	# send a message on rocket chat
+                        	postMessage "$TEST_NAME is back UP !"
+                	fi
+
+			# reset the alert_triggered variable
+			alert_triggered=false
+		fi
+	
+	
 		# reset the test_fails variable
                 # to false to stop the loop
                 if [ $RUN_FOREVER = false ]
@@ -214,26 +237,36 @@ do
                         echo "!!!!.. OFFLINE ..!!!!"
                 fi
 
-        
-                # trigger an  the alert
-                # >>> do something here
-		if [ $GPIO_ALERT = true ]
-		then
-			if [ $DEBUG = true ]
+	###
+	#
+	# TRIGGER THE ALERTS
+	#
+	###
+                if [ "$alert_triggered" = "false"  ]
+                then
+
+                	# trigger an  the alert
+                	# >>> do something here
+			if [ $GPIO_ALERT = true ]
 			then
-				echo "set the pin $GPIO_PIN >> UP"
+				if [ $DEBUG = true ]
+				then
+					echo "set the pin $GPIO_PIN >> UP"
+				fi
+
+				# set the GPIO_PIN high
+                		gpio write $GPIO_PIN 1
 			fi
 
-			# set the GPIO_PIN high
-                	gpio write $GPIO_PIN 1
+			if [ $CHAT_ALERT = true ]
+                	then
+                        	# send a message on rocket chat
+                        	postMessage "$TEST_NAME is DOWN !!!!!!"
+                	fi
+			
+			# set the alert_triggered variable
+			alert_triggered=true
 		fi
-
-		if [ $CHAT_ALERT = true ]
-                then
-                        # set the GPIO_PIN high
-                        postMessage "$TEST_NAME is DOWN !!!!!!"
-                fi
-
 
                 # sleep for few seconds
                 sleep $SLEEPING_TIME

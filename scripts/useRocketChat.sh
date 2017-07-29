@@ -10,8 +10,7 @@
 function postMessage(){
 # set the CONFIG_FILE variable with
 # the path to the CONFIG_FILE file
-#CONFIG_FILE="$( dirname $( dirname $( realpath $0 ) ) )/CONFIG_FILE"
-readonly CONFIG_FILE="$( dirname $( realpath $0 ) )/CONFIG_FILE"
+CONFIG_FILE="$( dirname $( realpath $0 ) )/CONFIG_FILE"
 
 # test if the file exist
 if [ -f $CONFIG_FILE  ]
@@ -33,6 +32,7 @@ then
 	exit 10
 fi
 
+# todo : finish this function
 usage(){
 
 	echo ""
@@ -41,9 +41,9 @@ usage(){
 }
 
 # store the given params as the message to send
-message_to_send="$1"
+message_to_send="$@"
 
-if [ -n $message_to_send ]
+if [ "$message_to_send" = "" ]
 then
 	echo "No message to send"
 	exit 2
@@ -101,7 +101,6 @@ fi
 # logout to invalidate the auth token
 logout_result="$(curl -k -s $ROCKETCHAT_API_URL/logout -H "X-Auth-Token: $auth_token" -H "X-User-Id: $user_id")"
 
-exit 0
 }
 
 if [ "$BASH_SOURCE" == "$0" ]
