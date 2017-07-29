@@ -42,6 +42,6 @@ subject_to_send="$@"
 
 if [ "$BASH_SOURCE" == "$0" ]
 then
-        postMessage $@
+        sendEmail $@
 fi
 
