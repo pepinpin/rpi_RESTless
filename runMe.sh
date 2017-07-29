@@ -21,6 +21,7 @@ CONFIG_FILE=./CONFIG_FILE
 
 TEST_API=./scripts/testAPI.sh
 GPIO=./scripts/useGPIO.sh
+CHAT=./scripts/useRocketChat.sh
 
 
 ###
@@ -36,6 +37,7 @@ then
         # source the needed files
 	source $CONFIG_FILE
         source $GPIO
+        source $CHAT
 
 # if one of them doesn't exist
 else
@@ -225,6 +227,12 @@ do
 			# set the GPIO_PIN high
                 	gpio write $GPIO_PIN 1
 		fi
+
+		if [ $CHAT_ALERT = true ]
+                then
+                        # set the GPIO_PIN high
+                        postMessage "$TEST_NAME is DOWN !!!!!!"
+                fi
 
 
                 # sleep for few seconds

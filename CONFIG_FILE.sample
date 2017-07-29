@@ -8,29 +8,37 @@
 # GENERAL
 #
 #####
+#
+# The test name
+# ex : "Production Server"
+readonly TEST_NAME=""
 
 # Raspberry Pi version
 # can be : 
 # ** 1 (for raspi 1 rev 2)
 # ** 2 (for raspi 2)
 # ** 3 (for raspi 3)
-RASPI_VERSION=1
+# doesn't matter if you use this script
+# on a linux box other than a raspi
+readonly RASPI_VERSION=1
 
 # Display alert on screen 
 # (mainly for debug or test)
-DEBUG=true
+readonly DEBUG=true
 
-# Alert with GPIO
-GPIO_ALERT=true
+# Alert with GPIO (ONLY FOR RASPI !)
+# see section bellow to set the pin to use for alerting
+readonly GPIO_ALERT=false
 
-# the sleeping time between 2 tests if one fails
-SLEEPING_TIME=3 # default 3 seconds
+# Alert by sending a message to rocketChat
+# see the section bellow to configure this alert system
+readonly RC_ALERT=false
 
 # set the following variable to true
 # if you want the script to run forever
 # (using nohup, tmux or screen if you want 
 # to be able to close your terminal without stopping the script)
-RUN_FOREVER=true
+readonly RUN_FOREVER=true
 
 #####
 #
@@ -38,19 +46,22 @@ RUN_FOREVER=true
 #
 #####
 
+# the sleeping time between 2 tests if one fails
+readonly SLEEPING_TIME=3 # default 3 seconds
+
 # The verb used to ping the API
-QUERY_METHOD="GET"
+readonly QUERY_METHOD="GET"
 
 # the route to ping
-URL="https://exemple.com:8080/api/ping"
+readonly URL="https://exemple.com:8080/api/ping"
 
 # The JSON key to search for at the top level
 # of the received JSON object
 # (see 'man jq' for more)
-JSON_KEY="response"
+readonly JSON_KEY="response"
 
 # The expected value
-JSON_VALUE="PONG"
+readonly JSON_VALUE="PONG"
 
 # The expected response from
 # the ping route is an object
@@ -60,6 +71,29 @@ JSON_VALUE="PONG"
 #   "response":"PONG"
 # }
 #
+
+
+#####
+#
+#	ROCKET CHAT
+#
+#####
+
+readonly ROCKETCHAT_API_URL="https://rocketchat.exemple.com/api/v1"
+readonly ROCKETCHAT_USER_EMAIL='someUser@someDomain.com'
+readonly ROCKETCHAT_USER_PASSWORD='Th3SuperSecretP455word'
+
+# MADATORY
+# 1 of the 2 next options MUST be set
+#
+# ex: ByehQjC44FwMeiLbX 
+readonly ROCKETCHAT_ROOM_ID=""
+#
+# or
+#
+# must be prefixed with #, ex: #general
+readonly ROCKETCHAT_CHANNEL_NAME="#test"
+
 
 #####
 #
