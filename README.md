@@ -21,9 +21,9 @@ when querying a specific endpoint with a common HTTP verb (GET, POST, PUT...)
 }
 ```
 * The following packages installed :
-    cURL, jq (JSON processor) & git (to clone the repo, you can uninstall it afterwards)
+    cURL, jq (JSON processor), realpath, dirname & git (to clone the repo, you can uninstall it afterwards)
 ```bash
-sudo apt install -y curl jq git dirname realpath
+sudo apt install -y curl jq dirname realpath git
 ```
 
 ### Installation
