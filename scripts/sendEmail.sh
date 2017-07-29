@@ -28,9 +28,10 @@ function sendEmail(){
 
 
 SENDMAIL_SUBJECT="test again"
+SENDMAIL_RECIPIENT="toto@to.to"
 
 	# send the email
-	/usr/lib/sendmail -s "Subject : $SENDMAIL_SUBJECT" -v rosbiff@gmail.com
+	/usr/lib/sendmail -s "Subject : $SENDMAIL_SUBJECT" -v $SENDMAIL_RECIPIENT
 }
 
 if [ "$BASH_SOURCE" == "$0" ]
