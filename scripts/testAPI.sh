@@ -6,7 +6,7 @@
 
 # set the CONFIG_FILE variable with 
 # the path to the CONFIG_FILE file
-CONFIG_FILE="$( dirname $( dirname $( realpath $0 ) ) )/CONFIG_FILE"
+CONFIG_FILE=$( dirname $( dirname $( realpath $0 ) ) )/CONFIG_FILE
 
 # test if the file exist
 if [ -f $CONFIG_FILE  ]
