@@ -60,5 +60,5 @@ sudo crontab -e
 
 ### Post install setup
 
-* check this picture to know which pin to set in the CONFIG_FILE
+* check this picture to know which pin to set in the CONFIG_FILE  
 ![pin layout](https://user-images.githubusercontent.com/8282491/28756006-d8ec0a0c-7566-11e7-8044-b8889db79cf1.png)
