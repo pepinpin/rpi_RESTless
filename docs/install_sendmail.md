@@ -26,7 +26,8 @@ and edit /etc/hosts :
 and make it look like this (:!: order matter :!:)
 
 ```bash
-127.0.0.1 myServer.myDomain.com myServer localhost 
+127.0.0.1 localhost.localdomain localhost # keep this line
+127.0.0.1 myServer.myDomain.com myServer.myDomain myServer 
 ```
 
 ------
