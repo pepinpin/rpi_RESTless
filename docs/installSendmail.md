@@ -26,8 +26,7 @@ and edit /etc/hosts :
 and make it look like this (:!: order matter :!:)
 
 ```bash
-127.0.0.1 myServer.intranet.setec-smart-efficiency.fr myServer localhost 
-#127.0.1.1 myServer.intranet.setec-smart-efficiency.fr myServer
+127.0.0.1 myServer.myDomain.com myServer localhost 
 ```
 
 ------
