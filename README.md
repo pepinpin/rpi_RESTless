@@ -1,7 +1,7 @@
 ## Welcome rpi_RESTless
 
 This bash script will help you monitor a REST API heartbeat with a Raspberry Pi 
-(or any linux box for that matter) and set off an alert
+(or any linux box for that matter) and set off an alert if it goes down
 
 * NO PYTHON (full bash script)
 * Easy to configure
