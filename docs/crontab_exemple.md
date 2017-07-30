@@ -14,7 +14,5 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 @reboot /home/pi/rpi_RESTless/runMe.sh force
 * * * * * /home/pi/rpi_RESTless/runMe.sh
-* * * * * /etc/myDevices/crontab.sh
-
 ```
 
