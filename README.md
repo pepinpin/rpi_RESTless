@@ -1,6 +1,6 @@
 ## Welcome rpi_RESTless
 
-This bash script will help you monitor a REST API heartbeat with a Raspberry Pi 
+This bash script will help you monitor a REST API heartbeat with a Raspberry Pi  
 (or any linux box for that matter) and set off an alert if it goes down
 
 * NO PYTHON (full bash script)
@@ -20,14 +20,12 @@ when querying a specific endpoint with a common HTTP verb (GET, POST, PUT...)
   "response":"PONG"
 }
 ```
-* The following packages installed :
-    
+* The following packages installed :  
   cURL, jq (JSON processor), realpath, dirname & git (to clone the repo, you can uninstall it afterwards)
 ```bash
 sudo apt install -y curl jq dirname realpath git
 ```
-* Sendmail installed for email alerting
-
+* Sendmail installed for email alerting  
   Check the docs directory for instructions on how to
 
 ### Installation
