@@ -213,7 +213,7 @@ do
                 	then
 				if [ "$force_check_on_reboot" = "true" ]
 				then
-					postMessage "after reboot : $ROCKETCHAT_MSG_SUCCESS"
+					postMessage "after $HOSTNAME reboot : $ROCKETCHAT_MSG_SUCCESS"
 				else
                         		# send a message on rocket chat
                         		postMessage $ROCKETCHAT_MSG_SUCCESS
@@ -224,7 +224,7 @@ do
                         then
 				if [ "$force_check_on_reboot" = "true" ]
                                 then
-                                        sendEmail "after reboot : $SENDMAIL_SUBJECT_SUCCESS"
+                                        sendEmail "after $HOSTNAME reboot : $SENDMAIL_SUBJECT_SUCCESS"
                                 else
                                 	# send a message on rocket chat
                                 	sendEmail $SENDMAIL_SUBJECT_SUCCESS
