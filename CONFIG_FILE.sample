@@ -25,7 +25,7 @@ RUN_FOREVER=true
 
 # Raspberry Pi version
 # can be : 
-# ** 1 (for raspi 1 rev 2)
+# ** 1 (for raspis v1.2)
 # ** 2 (for raspi 2)
 # ** 3 (for raspi 3)
 # doesn't matter if you use this script
