@@ -52,9 +52,10 @@ vim CONFIG_FILE
 ```bash
 ./runMe.sh
 ```
-* setup a cron (every minute or so)
+* setup a cron (every minute or so)  
+(check the docs directory for more info)
 ```bash
-crontab -e
+sudo crontab -e
 ```
 
 ### Post install setup
