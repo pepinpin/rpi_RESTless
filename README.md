@@ -21,12 +21,14 @@ when querying a specific endpoint with a common HTTP verb (GET, POST, PUT...)
 }
 ```
 * The following packages installed :
-    cURL, jq (JSON processor), realpath, dirname & git (to clone the repo, you can uninstall it afterwards)
+    
+  cURL, jq (JSON processor), realpath, dirname & git (to clone the repo, you can uninstall it afterwards)
 ```bash
 sudo apt install -y curl jq dirname realpath git
 ```
 * Sendmail installed for email alerting
-Check the docs directory for instructions on how to
+
+  Check the docs directory for instructions on how to
 
 ### Installation
 
