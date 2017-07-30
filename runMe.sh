@@ -10,13 +10,14 @@
 ###
 # if the argument "force" is passed to this script
 # the test will check if the API is online and reset
-# the alert if not (to avoid having an email/chat message
+# the alert if it is (to avoid having an email/chat message
 # saying the API is down after a reboot)
 #
 force_check_on_reboot=false
 if [ "$1" = "force" ]
 then
 	force_check_on_reboot=true
+	sleep 120 # sleep 2 mn after reboot to ensure the wifi is up
 fi
 
 ####
@@ -210,14 +211,24 @@ do
 
                 	if [ $CHAT_ALERT = true ]
                 	then
-                        	# send a message on rocket chat
-                        	postMessage $ROCKETCHAT_MSG_SUCCESS
+				if [ "$force_check_on_reboot" = "true" ]
+				then
+					postMessage "after reboot : $ROCKETCHAT_MSG_SUCCESS"
+				else
+                        		# send a message on rocket chat
+                        		postMessage $ROCKETCHAT_MSG_SUCCESS
+				fi
                 	fi
 
                         if [ $EMAIL_ALERT = true ]
                         then
-                                # send a message on rocket chat
-                                sendEmail $SENDMAIL_SUBJECT_SUCCESS
+				if [ "$force_check_on_reboot" = "true" ]
+                                then
+                                        sendEmail "after reboot : $SENDMAIL_SUBJECT_SUCCESS"
+                                else
+                                	# send a message on rocket chat
+                                	sendEmail $SENDMAIL_SUBJECT_SUCCESS
+				fi
                         fi
 
 			# reset the alert_triggered variable
