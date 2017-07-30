@@ -41,6 +41,8 @@ GPIO_ALERT=false
 CHAT_ALERT=false
 
 # Alert by sending an email
+# /!\ YOU NEED TO HAVE SENDMAIL INSTALLED /!\
+# check the instructions on how to install it, in the docs directory and
 # see the section bellow to configure this alert system
 EMAIL_ALERT=true
 
@@ -103,7 +105,10 @@ ROCKETCHAT_MSG_FAILURE="$TEST_NAME is DOWN !!!! :thumbsdown:"
 #       SEND EMAIL
 #
 #####
-
+#
+# /!\ YOU NEED TO HAVE SENDMAIL INSTALLED /!\
+# check the instructions on how to install it in the docs directory
+#
 # who do you want to send an email to ?
 # you can add multiple reciepients with a comma
 # ex : john1@to.to,betty@to.to

@@ -8,7 +8,7 @@ This bash script will help you monitor a REST API heartbeat with a Raspberry Pi
 * Usable via a cron job
 * Trigger a GPIO pin on Raspberry Pi
 * Sends a message on Rocket Chat
-* Sends an email
+* Sends an email (needs sendmail installed)
 
 ### Requirements
 
@@ -25,6 +25,8 @@ when querying a specific endpoint with a common HTTP verb (GET, POST, PUT...)
 ```bash
 sudo apt install -y curl jq dirname realpath git
 ```
+* Sendmail installed for email alerting
+Check the docs directory for instructions on how to
 
 ### Installation
 
