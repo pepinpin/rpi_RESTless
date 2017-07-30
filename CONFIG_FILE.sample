@@ -161,7 +161,7 @@ GPIO_PIN=2 # is pin 4 on the board
 #
 ########################################################
 #
-# for Raspberry Pi 1 Revision 2
+# for Raspberry Pi v1.2
 #
 #       Physical pins
 # (as labeled on the board)     GPIO_PIN number to use 
