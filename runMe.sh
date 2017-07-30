@@ -3,6 +3,21 @@
 # The MAIN script
 #
 #
+###
+#
+# The argument
+#
+###
+# if the argument "force" is passed to this script
+# the test will check if the API is online and reset
+# the alert if not (to avoid having an email/chat message
+# saying the API is down after a reboot)
+#
+force_check_on_reboot=false
+if [ "$1" = "force" ]
+then
+	force_check_on_reboot=true
+fi
 
 ####
 #
@@ -177,7 +192,7 @@ do
 	#	
 	###
 		# if the alert has been triggered	
-		if [ "$alert_triggered" = "true"  ]
+		if [[ "$alert_triggered" = "true" || "$force_check_on_reboot" = "true" ]]
 		then
 
 			# stop the alert
