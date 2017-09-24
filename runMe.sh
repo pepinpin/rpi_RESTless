@@ -38,6 +38,7 @@ TEST_API=$(dirname $(realpath $0 ) )/scripts/testAPI.sh
 GPIO=$(dirname $(realpath $0 ))/scripts/useGPIO.sh
 CHAT=$(dirname $(realpath $0 ))/scripts/useRocketChat.sh
 EMAIL=$(dirname $(realpath $0 ))/scripts/sendEmail.sh
+HEARTBEAT=$(dirname $(realpath $0 ))/scripts/heartBeat.sh
 
 ###
 #
@@ -46,7 +47,7 @@ EMAIL=$(dirname $(realpath $0 ))/scripts/sendEmail.sh
 #
 ###
 
-if [[ -f $CONFIG_FILE  && -f $TEST_API && -f $GPIO && -f $EMAIL ]]
+if [[ -f $CONFIG_FILE  && -f $TEST_API && -f $GPIO && -f $EMAIL && -f $HEARTBEAT ]]
 # if they do
 then
         # source the needed files
@@ -54,6 +55,7 @@ then
         source $GPIO
         source $CHAT
         source $EMAIL
+        source $HEARTBEAT
 
 # if one of them doesn't exist
 else
@@ -234,6 +236,13 @@ do
                         alert_triggered=false
                 fi
 
+		
+		# trigger the heartbeat
+		if [ "$GPIO_ALERT" = "true" ]
+		then
+                	heartBeat
+		fi	
+
 
                 # reset the test_fails variable
                 # to false to stop the loop
@@ -325,3 +334,4 @@ done
 exit 0
 
                                                                                                 
+
