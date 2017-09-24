@@ -25,12 +25,17 @@ fi
 # The result of calling the API
 # with the requested parameters,
 # here it should be the string 'PONG'
-result="$(curl -s -X $QUERY_METHOD -H "Accept: application/json" $URL | jq -r '.'$JSON_KEY)"
+result="$(curl -s -X $QUERY_METHOD -H "Accept: application/json" $URL | jq -r '.'$JSON_KEY 2> /dev/null)"
 
 # test the result of calling the API
 if [ "$result" = "$JSON_VALUE" ]
 then
 	exit 0 # the target has been reached
 else
+	if [ "${DEBUG}" = "true" ]
+	then
+		echo "The API didn't reply with the expected response or the API cannot be reached"
+	fi
+
 	exit 2 # the target can't be reached
 fi
