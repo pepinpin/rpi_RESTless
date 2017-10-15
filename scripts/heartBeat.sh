@@ -18,8 +18,8 @@ function heartBeat(){
 	if [[ -f $CONFIG_FILE && -f $GPIO ]]
 	# if they do
 	then
-	        # source them
-	        source $CONFIG_FILE
+        # source them
+        source $CONFIG_FILE
 		source $GPIO
 	
 	# if they don't
@@ -37,10 +37,10 @@ function heartBeat(){
 	gpio write $GPIO_PIN 1
 	sleep 0.2
 	gpio write $GPIO_PIN 0
-        sleep 0.2
-        gpio write $GPIO_PIN 1
-        sleep 0.2
-        gpio write $GPIO_PIN 0
+    sleep 0.2
+    gpio write $GPIO_PIN 1
+    sleep 0.2
+    gpio write $GPIO_PIN 0
 }
 
 
