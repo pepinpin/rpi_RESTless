@@ -34,11 +34,10 @@ CONFIG_FILE=$(dirname $(realpath $0 ))/CONFIG_FILE
 #
 ###
 
-TEST_API=$(dirname $(realpath $0 ) )/scripts/testAPI.sh
-GPIO=$(dirname $(realpath $0 ))/scripts/useGPIO.sh
-CHAT=$(dirname $(realpath $0 ))/scripts/useRocketChat.sh
-EMAIL=$(dirname $(realpath $0 ))/scripts/sendEmail.sh
-HEARTBEAT=$(dirname $(realpath $0 ))/scripts/heartBeat.sh
+SCRIPTS=$(dirname $(realpath $0 ) )/scripts
+TEST_API=${SCRIPTS}/testAPI.sh
+CHAT=${SCRIPTS}/useRocketChat.sh
+EMAIL=${SCRIPTS}/sendEmail.sh
 
 ###
 #
@@ -47,15 +46,13 @@ HEARTBEAT=$(dirname $(realpath $0 ))/scripts/heartBeat.sh
 #
 ###
 
-if [[ -f $CONFIG_FILE  && -f $TEST_API && -f $GPIO && -f $EMAIL && -f $HEARTBEAT ]]
+if [[ -f $CONFIG_FILE  && -f $TEST_API && -f $EMAIL ]]
 # if they do
 then
     # source the needed files
     source $CONFIG_FILE
-    source $GPIO
     source $CHAT
     source $EMAIL
-    source $HEARTBEAT
 
 # if one of them doesn't exist
 else
@@ -178,7 +175,7 @@ then
     fi
 
 
-    gpio mode $GPIO_PIN out
+    ${SCRIPTS}/useGPIO.sh mode $GPIO_PIN out
 fi
 
 
@@ -220,7 +217,8 @@ do
                 fi
 
                 # set the GPIO_PIN low
-                gpio write $GPIO_PIN 0
+                ${SCRIPTS}/flash_alert.sh stop
+
             fi
 
             if [ "$CHAT_ALERT" = "true" ]
@@ -253,7 +251,7 @@ do
         # trigger the heartbeat
         if [ "$GPIO_ALERT" = "true" ]
         then
-            heartBeat
+            ${SCRIPTS}/heartBeat.sh
         fi
 
         # reset the test_failed variable
@@ -314,7 +312,7 @@ do
                         fi
 
                         # set the GPIO_PIN high
-                        gpio write $GPIO_PIN 1
+                        ${SCRIPTS}/flash_alert.sh start &
                 fi
 
                 if [ "$CHAT_ALERT" = "true" ]
